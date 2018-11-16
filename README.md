@@ -1,6 +1,8 @@
 # Madrick Countdown Timer
 Simple javascript function to make a countdown timer
 
+[Github repository!](https://github.com/madricks/madrick-countdown-timer)
+
 ## Getting Started
 
 ### Installing
@@ -31,6 +33,7 @@ countdown = {
 ngOnInit() {
     // params[1] = string date and time
     // params[2] = callback function
+    // params[3] = options, see table documentation bellow
     mct.countdown('Jan 5, 2019 13:47:25', (countdown) => {
         // countdown = { 
         //   days, hours, minutes, seconds,
@@ -39,7 +42,7 @@ ngOnInit() {
         // }
 
         this.countdown = countdown;
-    });
+    }, { format: 'dhms' });
 }
 ```
 
@@ -47,3 +50,8 @@ In angular.component.html
 ```typescript
 {{countdown.days}}d - {{countdown.hours}}h - {{countdown.minutes}}m - {{countdown.seconds}}s
 ```
+
+### Options
+| Options | Values                                                                                                       |
+|---------|--------------------------------------------------------------------------------------------------------------|
+| format  | **'dhms'** => X days, 24 hours, 60 minutes, 60 seconds *(default)*<br>**'hms'** => 0 day, X hours, 60 minutes, 60 seconds |

@@ -1,4 +1,4 @@
-function countdown(cdDate, cb) {
+function countdown(cdDate, cb, options) {
   // Set the date we're counting down to
   const countDownDate = new Date(cdDate).getTime();
   // Update the count down every 1 second
@@ -11,10 +11,23 @@ function countdown(cdDate, cb) {
     const distance = countDownDate - now;
 
     // Time calculations for days, hours, minutes and seconds
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (options) {
+      switch (options.format) {
+        case 'hms':
+          days = 0;
+          hours = Math.floor((distance / (1000 * 60 * 60 * 24) * 24)) + Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          break;
+
+        default:
+
+          break;
+      }
+    }
 
     const countdown = {
       days: days,
