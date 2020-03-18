@@ -2,6 +2,7 @@
 Simple javascript function to make a countdown timer
 
 [Github repository!](https://github.com/madricks/madrick-countdown-timer)
+[Npm repository!](https://www.npmjs.com/package/madrick-countdown-timer)
 
 ## Getting Started
 
